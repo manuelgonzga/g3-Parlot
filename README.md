@@ -1,53 +1,53 @@
-# Parlot – Plataforma de Aprendizaje de Idiomas
+# Parlot – Language Learning Platform
 
-Este proyecto es una plataforma web llamada **Parlot**, orientada al aprendizaje de idiomas en línea. 
-Fue desarrollado como parte de un trabajo académico junto a compañeros de clase, 
-utilizando tecnologías modernas como **Java**, **Spring Boot** y **Maven**.
-
----
-
-## Funcionalidades principales
-
-- Registro y gestión de alumnos y administradores
-- Asignación de clases y control de asistencia
-- Filtros para organizar usuarios y clases
-- Autenticación básica y control de acceso
-- Interfaz estructurada con rutas claras
+This project is a web platform called **Parlot**, designed for online language learning.  
+It was developed as part of an academic assignment together with classmates,  
+using modern technologies such as **Java**, **Spring Boot**, and **Maven**.
 
 ---
 
-## Tecnologías utilizadas
+## Main Features
+
+- Student and admin registration and management
+- Class assignment and attendance tracking
+- Filters to organize users and classes
+- Basic authentication and access control
+- Structured interface with clear routing
+
+---
+
+## Technologies Used
 
 - Java 17
 - Spring Boot
 - Maven
-- Thymeleaf (si aplica)
-- H2 / MySQL (dependiendo de la configuración)
+- Thymeleaf (if applicable)
+- H2 / MySQL (depending on configuration)
 - HTML / CSS
 
 ---
 
-## Instalación local
+## Local Installation
 
-### Requisitos previos
+### Prerequisites
 
-- Java 17 instalado
-- (Opcional) Maven instalado, aunque este proyecto incluye Maven Wrapper (`mvnw`)
+- Java 17 installed
+- (Optional) Maven installed, though this project includes Maven Wrapper (`mvnw`)
 
-### Pasos
+### Steps
 
-1. **Clona el repositorio:**
+1. **Clone the repository:**
 
    ```bash
    git clone https://github.com/manuelgonzga/g3-Parlot.git
    cd g3-Parlot/Language_Learning
 
-2. **Ejecuta la aplicación:**
+2. **Run the application:**
 
-   En Linux/MacOS: ./mvnw spring-boot:run
-   En Windows: mvnw.cmd spring-boot:run
+   On Linux/MacOS: ./mvnw spring-boot:run
+   On Windows: mvnw.cmd spring-boot:run
 
-3. **Abre tu navegador y accede a:**
+3. **Open your browser and go to:**
 
    http://localhost:8080
 
