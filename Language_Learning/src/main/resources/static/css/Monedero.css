@@ -1,0 +1,487 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #BBBBBB;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Añade sombra al contenedor */
+}
+
+/* Estilos para el encabezado */
+.header-container {
+    background-color: #99ce9a;
+    color: #0c0c0c;
+    padding: 10px 0;
+    text-align: center;
+}
+
+
+/* Estilos para el saldo */
+.saldo {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Añade sombra al saldo */
+}
+
+.saldo .disponible {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Estilos para los formularios */
+.saldo-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.saldo-form select, .saldo-form input[type="text"] {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px; /* Añade bordes redondeados a los campos de entrada */
+}
+
+/* Estilos para los botones */
+button.comprar-saldo {
+    background-color: #99ce9a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px; /* Añade bordes redondeados al botón */
+    margin-top: 10px;
+}
+
+button.comprar-saldo:hover {
+    background-color: #516e52;
+}
+
+.container {
+    width: 400px; /* Ajusta el ancho según tus necesidades */
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.comprar-creditos {
+    background-color: #4CAF50; /* Color verde */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-left: auto; /* Asegurar que el botón se mueva a la derecha */
+
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h2 {
+    margin-bottom: 0; /* Remover el margen inferior para alinear correctamente */
+}
+
+.comprar-creditos:hover {
+    background-color: var(--primary); /* Cambia a un tono de verde más oscuro al pasar el cursor */
+}
+
+.saldo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.saldo > div {
+    width: 48%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.saldo-total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.saldo-total > div {
+    width: 48%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.tarjetas-regalo {
+    text-align: center;
+}
+
+.tarjetas-regalo img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.nota {
+    font-size: 0.9em;
+    color: #777;
+}
+
+
+
+
+
+
+
+
+/* Nuevo header */
+
+:root {
+    --primary: #b08663;
+    --background: #e8f2e8;
+    --navbar-height: 48px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+
+.background {
+
+    display: block;
+    width: 100%;
+    height: 10vh;
+    opacity: 1;
+    z-index: 1;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.menu__wrapper {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    z-index: 2;
+}
+
+.menu__bar {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap; /* Añade esta línea */
+    padding: 0 1rem;
+    gap: 2rem;
+    background: var(--background);
+    height: 4rem;
+    opacity: 0.9;
+}
+
+.profile-pic {
+    height: 40px; /* Ajusta el tamaño según tus necesidades */
+    width: 40px;
+    border-radius: 50%; /* Esto hace que la imagen sea circular */
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.profile-pic:hover {
+    cursor: pointer;
+}
+
+.profile-pic-containter{
+    position: absolute;
+    top: 6px;
+    right: 115px;
+    z-index: 1;
+
+}
+
+#iconoPerfil{
+    color: var(--primary);
+    cursor: pointer;
+    font-size: 37px;
+}
+
+.menu-icon {
+    cursor: pointer;
+    display: flex;
+    height: 2rem;
+    width: 2rem;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0;
+    background-color: var(--background);
+}
+
+.logo svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.navigation>li {
+    display: flex;
+    position: relative;
+    cursor: pointer;
+    font-size: 1.25rem;
+}
+
+.navigation>li>a {
+    color: white;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: 500;
+    background-image: linear-gradient(to right,
+    var(--primary),
+    var(--primary) 50%,
+    #357835 50%);
+    background-size: 200% 100%;
+    background-position: -100%;
+    display: inline-block;
+    padding: 0.2rem 0;
+    position: relative;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+.navigation>li>a:before {
+    content: '';
+    background: var(--primary);
+    display: block;
+    position: absolute;
+    bottom: -0.125rem;
+    left: 0;
+    width: 0;
+    height: 0.125rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.navigation>li>a:hover {
+    background-position: 0;
+}
+
+.navigation>li>a:hover::before {
+    width: 100%;
+}
+
+@media (min-width: 600px) {
+    .menu-icon {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .navigation {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .navigation--mobile {
+        top: var(--navbar-height);
+        position: absolute;
+        right: 0;
+        display: flex;
+        padding: 5rem 3.5rem;
+        min-height: 100%;
+        background-color: var(--background);
+        gap: 0.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        opacity: 0.95;
+        animation: fadein 0.3s forwards;
+    }
+
+    @keyframes fadein {
+        0% {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        100% {
+            opacity: 1;
+            width: 100%;
+            height: calc(100vh - var(--navbar-height));
+        }
+    }
+
+    .navigation--mobile--fadeout {
+        animation: fadeout 300ms forwards;
+    }
+
+    @keyframes fadeout {
+        0% {
+            opacity: 1;
+            width: 100%;
+            height: calc(100vh - var(--navbar-height));
+        }
+
+        100% {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+    }
+
+}
+
+
+.css-mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background);
+    padding: 0px 0;
+}
+.css-mobile-header .css-mobile-logo {
+    max-width: 150px;
+    padding-left: 1rem;
+    z-index: 9999999;
+}
+.css-mobile-header .css-mobile-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.css-mobile-header .css-mobile-menu #menuToggle {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-right: 1.5rem;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.css-mobile-header .css-mobile-menu #menuToggle input {
+    display: flex;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+}
+.css-mobile-header .css-mobile-menu #menuToggle span {
+    display: flex;
+    width: 29px;
+    height: 2px;
+    margin-bottom: 5px;
+    position: relative;
+    background: var(--primary);
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 5px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+.css-mobile-header .css-mobile-menu #menuToggle span:first-child {
+    transform-origin: 0% 0%;
+}
+.css-mobile-header .css-mobile-menu #menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+.css-mobile-header .css-mobile-menu #menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-3px, -1px);
+}
+.css-mobile-header
+.css-mobile-menu
+#menuToggle
+input:checked
+~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+.css-mobile-header
+.css-mobile-menu
+#menuToggle
+input:checked
+~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
+
+.css-mobile-header #menu {
+    position: absolute;
+    width: auto;
+    min-width: 200px;
+    height: 100vh;
+    margin: -50px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translateX(100%);
+    top: 0;
+    right: 0;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    list-style: none;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2); /* Añade esta línea */
+}
+.css-mobile-header #menu li {
+    padding: 10px 0;
+}
+.css-mobile-header #menu li a {
+    color: #357835;
+    text-decoration: none;
+}
+.css-mobile-header .css-mobile-menu #menuToggle input:checked ~ ul {
+    transform: none;
+}
+
+#menu li a:hover {
+    color: var(--primary); /* Cambia este color al que prefieras */
+}
+
+
+@media all and (max-width: 576px) {
+    .css-mobile-header #menu {
+        width: 100vw;
+        height: 100vh;
+        padding-left: 0;
+        padding-right: 0;
+        text-align: center;
+    }
+    .css-mobile-header #menu li {
+        padding: 1rem 2rem;
+    }
+    .css-mobile-header .css-mobile-menu #menuToggle {
+        padding-right: 1rem;
+    }
+}

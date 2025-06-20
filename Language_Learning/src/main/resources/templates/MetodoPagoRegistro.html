@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/MetodoPagoRegistro.css}">
+</head>
+<body>
+<div class="card">
+    <form class="container" th:action="@{'/SaveMetodoPago/' + ${usuario.id}}" method="post" th:object="${metodoPago}">
+        <label for="titular">Titular:</label>
+        <input type="text" id="titular" name="titular" th:field="*{titular}">
+        <br>
+        <label for="tarjeta">Tarjeta:</label>
+        <input type="text" id="tarjeta" name="tarjeta" th:field="*{tarjeta}">
+        <br>
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" th:field="*{cvv}">
+        <br>
+        <label for="mes">Fecha expiración: </label>
+        <input type="text" id="mes" name="mes" maxlength="2" placeholder="MM" th:field="*{mesCaducidad}">
+        <span class="separator">/</span>
+        <label for="anio"></label>
+        <input type="text" id="anio" name="anio" maxlength="4" placeholder="AAAA" th:field="*{añoCaducidad}">
+        <br>
+        <button type="submit">Guardar</button>
+        <br><br>
+        <p> Tarjeta actual: </p>
+    </form>
+
+    <div class="card__inner">
+        <div class="card__front">
+            <div class="chip">
+                <div class="chip-line"></div>
+                <div class="chip-line"></div>
+                <div class="chip-line"></div>
+                <div class="chip-line"></div>
+                <div class="chip-main"></div>
+            </div>
+            <svg class="wave" viewBox="0 3.71 26.959 38.787" width="26.959" height="38.787" fill="white">
+                <!-- SVG Paths -->
+            </svg>
+
+            <div class="card-number" id="cardNumber">
+                <div class="section">0000</div>
+                <div class="section">1111</div>
+                <div class="section">2222</div>
+                <div class="section">3333</div>
+            </div>
+
+            <div class="card-info__bottom">
+                <div class="card-holder" id="cardHolder">Nombre</div>
+                <div class="card-info__right">
+                    <div class="exp-date" id="fechCadM">05</div> /
+                    <div class="exp-date" id="fechCadA">27</div>
+                    <div class="mastercard">
+                        <div class="circle circle--red"></div>
+                        <div class="circle circle--yellow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card__back">
+            <div class="card-strip"></div>
+            <div class="card-signature-wrapper">
+                <div class="card-signature-field">
+                    <div class="card-signature-headline">Authorized Signature</div>
+                    <div class="card-signature" id="cardSignature"> Nombre</div>
+                </div>
+                <div class="card-ccv" id="cardCvv">123</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('titular').addEventListener('input', function() {
+        document.getElementById('cardHolder').innerText = this.value;
+        document.getElementById('cardSignature').innerText = this.value;
+    });
+
+    document.getElementById('tarjeta').addEventListener('input', function() {
+        document.getElementById('cardNumber').innerText = this.value;
+    });
+
+    document.getElementById('cvv').addEventListener('input', function() {
+        document.getElementById('cardCvv').innerText = this.value;
+    });
+
+    document.getElementById('mes').addEventListener('input', function() {
+        document.getElementById('fechCadM').innerText = this.value;
+    });
+
+    document.getElementById('anio').addEventListener('input', function() {
+        document.getElementById('fechCadA').innerText = this.value;
+    });
+
+</script>
+</body>
+</html>
+

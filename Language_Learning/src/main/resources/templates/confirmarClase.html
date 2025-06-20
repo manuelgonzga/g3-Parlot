@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/confirmarClase.css}">
+</head>
+<body>
+
+<form th:action="@{'/save-clase/profesor/' + ${profesorId}}" method="post" th:object="${clase}">
+
+
+    <div class="form-group">
+        <label class="control-label">Idioma : </label>
+        <select id="idioma" name="idioma" th:field="*{idioma}">
+            <option th:each="userIdioma : ${profesor.getUserIdiomas()}" th:value="${userIdioma.idioma.id}" th:text="${userIdioma.idioma.name}"></option>
+        </select>
+
+        <br></br>
+
+        <label class="control-label">Tipo de clase : </label>
+        <select id="tipoClase" name="tipoClase" th:field="*{tipo}">
+            <option th:each="claseTipo : ${profesor.getClasetipos()}" th:value="${claseTipo.id}" th:text="${claseTipo.getNombre()}"></option>
+        </select>
+
+        <br></br>
+
+        <div th:unless="${MetodosPago.isEmpty()}">
+            <label class="control-label">Método de pago : </label>
+            <select id="metodoPago" name="metodoPago">
+                <option th:each="metodoPago : ${MetodosPago}" th:value="${metodoPago.id}" th:text="${metodoPago.getTarjetaOculta()}"></option>
+            </select>
+        </div>
+
+        <a th:href="@{'/addPayMethodFromClase/'+ ${profesor.id}}">Añadir método de pago</a>
+
+
+
+        <div class="col-md-6 col-md-offset-3">
+            <input type="submit" class="form-control btn btn-primary" name="login-submit" id="login-submit"
+                   value="Reservar" />
+        </div>
+    </div>
+
+
+
+</form>
+
+</body>
+</html>

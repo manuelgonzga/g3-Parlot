@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" th:href="@{/img/logo.png}"/>
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/clasesProfesor.css}">
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th>Idioma</th>
+        <th>Tipo</th>
+        <th>Estudiante</th>
+        <th>Fecha de inicio</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="clase : ${profesor.clases}">
+        <td th:text="${clase.idioma.name}"></td>
+        <td th:text="${clase.tipo.nombre}"></td>
+        <td th:text="${clase.getStudent().getName()}"></td>
+        <td th:text="${clase.getFechaInicioMadrid().toString()}"></td>
+
+        <td>
+            <form th:action="@{'/deleteClase/clase/' + ${clase.id}}" th:method="post">
+                <input type="submit" value="Cancelar">
+            </form>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
+
+
+
+
+
+

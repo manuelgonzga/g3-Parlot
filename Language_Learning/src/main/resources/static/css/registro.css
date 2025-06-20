@@ -1,0 +1,226 @@
+/* Estilos generales */
+:root {
+    --primary: #a1e8a3;
+    --primary-dark: #99ce9a;
+    --primary-light: #516e52;
+    --secondary: #170f0f;
+    --social-background: #E9E9E9;
+    --social-background-hover: #dddddd;
+    --text: #000000;
+    --white: #FFFFFF;
+    --violet: #567557;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 14px;
+    font-family: 'Work Sans', sans-serif;
+    height: 100vh;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--violet);
+    background: -webkit-linear-gradient(to right, var(--violet), var(--primary-dark));
+    background: linear-gradient(to right, var(--violet), var(--primary-dark));
+    zoom: 1.2;
+}
+
+/* Estilos para el formulario */
+.my-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    position: relative;
+    gap: 0.3rem;
+    background: var(--white);
+    width: 200%;
+    max-width: 32rem;
+    padding: 1rem;
+    border-radius: 2rem;
+    height: fit-content;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.my-form__button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+    line-height: 2rem;
+    outline: none;
+    font-size: 0.875rem;
+    letter-spacing: .025rem;
+    cursor: pointer;
+    font-weight: 800;
+    min-height: 2rem;
+    width: 100%;
+    border-radius: 10rem;
+    transition: all .3s ease;
+}
+
+.my-form__button:hover {
+    background: var(--primary-dark);
+}
+
+/* Estilos para los campos de entrada */
+.input__wrapper {
+    position: relative;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+}
+
+.input__field {
+    font-size: 0.875rem;
+    color: var(--text);
+    padding: 0.25rem 0;
+    padding-right: 1.5rem;
+    padding-bottom: 0.25rem;
+    line-height: 1.25rem;
+    height: 1.25rem;
+    outline: 0;
+    border: 0;
+    width: 100%;
+    vertical-align: middle;
+    padding-bottom: 0.35rem;
+    border-bottom: 2px solid var(--secondary);
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.input__field::placeholder {
+    color: transparent;
+}
+
+.input__label {
+    user-select: none;
+    font-size: 0.875rem;
+}
+
+.input__field:placeholder-shown ~ .input__label {
+    cursor: text;
+    color: var(--text);
+    top: 0.6rem;
+    font-size: 0.875rem;
+}
+
+.input__label,
+.input__field:focus ~ .input__label {
+    position: absolute;
+    top: -0.6rem;
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text);
+    transition: 0.3s;
+}
+
+.input__field:focus ~ .input__label {
+    color: var(--primary);
+}
+
+.input__field:focus {
+    border-bottom: 2px solid var(--primary);
+}
+
+
+
+.input__icon {
+    position: absolute;
+    right: -0.625rem;
+    bottom: 0.125rem;
+    stroke: var(--secondary);
+    width: 1rem;
+    height: 1rem;
+    display: block;
+    transition: 0.3s;
+}
+
+/* Estilos para la zona de arrastrar y soltar */
+.dropzone-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--secondary);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.dropzone-area.dragover {
+    background-color: var(--primary-light);
+}
+
+.dropzone-area .file-upload-icon {
+    margin-bottom: 0.5rem;
+}
+
+.file-info {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--secondary);
+}
+
+/* Ajustes para el selector de idiomas con Chosen para aumentar el ancho */
+.chosen-container {
+    width: 70% !important;
+}
+
+.my-form__actions {
+    text-align: center;
+    width: 100%;
+}
+.name-surname-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem; /* Ajusta el espacio entre los campos según necesites */
+}
+.input__wrapper {
+    position: relative;
+}
+
+#togglePassword {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.input__field--hidden {
+    opacity: 0;
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    z-index: -1;
+}
+
+.input__wrapper--inline {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.input__label--inline {
+    margin-right: 0.5rem;
+    white-space: nowrap; /* Asegura que el texto del label no se parta en varias líneas */
+}
+
+.input__field--inline {
+    flex-grow: 1; /* Permite que el input ocupe el espacio restante */
+}
+
+
+
+
+
+

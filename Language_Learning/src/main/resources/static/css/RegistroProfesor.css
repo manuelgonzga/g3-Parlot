@@ -1,0 +1,245 @@
+:root {
+    --primary: #bdf6bf;
+    --primary-dark: #99ce9a;
+    --primary-light: #516e52;
+    --secondary: #516e52;
+    --social-background: #E9E9E9;
+    --social-background-hover: #dddddd;
+    --text: #000000;
+    --white: #FFFFFF;
+    --violet: #516e52;
+
+
+    --dropzone-border: #FFF;
+    --headline: #FFF;
+    --primary-text: #F2F7FE;
+    --dropzone-over: var(--secondary);
+}
+
+html{
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+    font-size: 16px;
+    font-family: 'Work Sans', sans-serif;
+    margin: 0;
+    padding: 1rem;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text);
+
+
+
+    background: var(--violet);
+    background: -webkit-linear-gradient(to right, var(--violet),
+    var(--primary-dark));
+    background: linear-gradient(to right, var(--violet),
+    var(--primary-dark));
+
+}
+
+form {
+    background-color: rgba(17, 122, 6, 0.07);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px;
+    color: #000000;
+    background-color: #ffffff;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="file"],
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="file"] {
+    background-color: rgba(6, 159, 13, 0.07);
+}
+
+button {
+    width: 100%;
+    background-color: #045d04; /* Color verde oscuro */
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s; /* Suaviza la transición de colores */
+}
+
+button:hover,
+button:focus {
+    background-color: #033d03; /* Un verde más oscuro para hover y focus */
+}
+
+button:active {
+    background-color: #022d02; /* Un verde aún más oscuro para cuando el botón está activo */
+}
+
+
+span {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Añadido para subir archivos */
+
+
+
+
+.dropzone-area {
+    padding: 1rem;
+    position: relative;
+    margin-top: 1.5rem;
+    min-height: 5rem;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px dashed;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dropzone-area [type="file"] {
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.dropzone-area .file-upload-icon svg {
+    height: 6rem;
+    max-width: 6rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    color: #000000;
+}
+
+
+.dropzone--over {
+    border: 2px solid;
+    background: #afeeb9;
+}
+
+.dropzone-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+
+/*prueba*/
+
+.input__wrapper {
+    position: relative;
+    padding: 0.9375rem 0 0;
+    margin-bottom: 0.5rem;
+}
+
+.input__field,
+.input__fieldd{
+    font-size: 1.5rem;
+    color: var(--text);
+    padding: 1rem 0;
+    padding-right: 2rem;
+    padding-bottom: 0.5rem;
+    line-height: 2rem;
+    height: 2rem;
+    outline: 0;
+    border: 0;
+    width: 100%;
+    vertical-align: middle;
+    padding-bottom: 0.7rem;
+    border-bottom: 3px solid var(
+            --secondary
+    );
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.input__field::placeholder,
+.input__fieldd::placeholder{
+    color: transparent;
+}
+
+
+.input__label {
+    user-select: none;
+}
+
+.input__field:placeholder-shown
+~.input__label,
+.input__fieldd:placeholder-shown
+~.input__label{
+    cursor: text;
+    color: var(--text);
+    top: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.input__label,
+.input__field:focus~.input__label,
+.input__fieldd:focus~.input__label{
+    position: absolute;
+    top: -0.8rem;
+    display: block;
+    font-size: 1.2rem;
+    color: var(--text);
+    transition: 0.3s;
+}
+
+.input__field:focus~.input__label,
+.input__fieldd:focus~.input__label{
+    color: var(--primary);
+}
+
+.input__field:focus,
+.input__fieldd:focus{
+    border-bottom: 3px solid var(--primary);
+}
+
+.input__field:focus~svg,
+.input__fieldd:focus~svg{
+    stroke: var(--primary);
+}
+
+
+
+
+
+
+
+

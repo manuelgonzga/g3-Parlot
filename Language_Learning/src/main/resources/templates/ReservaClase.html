@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking calendar</title>
+    <link rel = "icon" href = "img/logo64.png" type = "image/png">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/ReservaClase.css}">
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+
+
+
+<!-- partial:index.partial.html -->
+<div class="book__calendar">
+    <div id="js-book-calendar" class="fc fc-unthemed fc-ltr"></div>
+</div>
+
+<div>     <form method = "post">
+    <input type="submit" name="submit" id="reservation-submit"                value="Reservar" />
+</form> </div>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.min.js'></script>
+
+
+
+
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.3.2/locales-all.min.js'></script><script  src="/js/script.js"></script>
+
+
+
+</body>
+</html>

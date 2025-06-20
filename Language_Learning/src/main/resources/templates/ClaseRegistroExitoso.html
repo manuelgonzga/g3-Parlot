@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" th:href="@{/img/logo.png}"/>
+    <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{/css/ClaseRegistroExitoso.css}">
+</head>
+<body>
+
+<div class="notification" id="notification">
+    <div class="notification__body">
+        Su reserva ha sido realizada &#128640;
+    </div>
+    <div class="notification__progress"></div>
+</div>
+
+<script>
+    // Function to handle the redirection
+    function redirectAfterTimeout() {
+        setTimeout(function() {
+            window.location.href = "/";
+        }, 4000); // 4000 milliseconds = 4 seconds
+    }
+
+    // Call the function to initiate the timeout
+    redirectAfterTimeout();
+</script>
+
+</body>
+</html>

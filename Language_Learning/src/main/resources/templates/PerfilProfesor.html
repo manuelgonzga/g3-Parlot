@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/PerfilProfesor.css}">
+    <link rel="icon" th:href="@{img/logo.png}"/>
+</head>
+
+<body>
+<div class="profile">
+    <header class="profile__header">
+        <div class="profile__highlight__wrapper">
+
+            <img th:src="${fotoPath}" alt="Foto de perfil del profesor" width="100" height="100">
+
+        </div>
+        <div class="profile__avatar">
+        </div>
+        <div class="profile__highlight__wrapper">
+            <div class="profile__highlight">
+                <span th:text="${profesor.pricePerHour}"></span>
+            </div>
+            Precio por hora
+        </div>
+    </header>
+
+
+    <div class="profile__name">
+        <span th:text="${profesor.name}"></span>
+        <span th:text="${profesor.surname}"></span>
+
+    </div>
+
+
+    <main>
+
+        <div id="about" class="tab-content tab-content--active">
+            <p>País del profesor: <span th:text="${profesor.getPais().getNombre()}"></span></p>
+            <p>Telefono del profesor: <span th:text="${profesor.getTelefono()}"></span></p>
+            <p>Email del profesor: <span th:text="${profesor.getMail()}"></span></p>
+            <p id = "idioma">Idiomas del profesor: <span th:each="idioma : ${profesor.getUserIdiomas()}" th:value = "${idioma.id}" th:text="${idioma.getIdioma().getName() + ' '}"></span></p>
+
+            <th:block th:if="${profesor.videoPath != null}" th:utext="${profesor.videoPath}"></th:block>
+        </div>
+
+        <form th:action = "@{'/registrar-clase/profesor/' + ${profesor.id}}" method = "post">
+            <input type="submit" name="submit" class="btn btn--primary"
+                   value="Reservar" />
+        </form>
+    </main>
+</div>
+
+<script th:src="@{/js/EncuentraProfesor.js}"></script>
+
+</body>
+
+</html>

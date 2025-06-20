@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Encuentra Profesor</title>
+    <link rel="icon" href="img/logo64.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@14.6.3/distribute/nouislider.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/EncuentraProfesor.css}">
+</head>
+<body>
+
+<form th:action="@{/consulta}" method="post">
+    <img id="logo" src="img/logo.png" alt="Logo">
+    <h3>Encuentra tu profesor ideal</h3>
+    <h4>Contacta y contrata un profesor en Parlot y comienza a mejorar tu habilidad en el idioma</h4>
+
+    <div class="input__wrapper">
+        <label class="input__label">Idioma</label>
+        <select id="idiomaEnseña" name="idiomaEnseña">
+            <option value="" selected>Selecciona idioma</option>
+            <option th:each="idioma : ${idiomas}" th:value="${idioma.id}" th:text="${idioma.name}"></option>
+        </select>
+    </div>
+
+    <div class="input__wrapper">
+        <label for="tipo" class="input__label">Categoría de clase</label>
+        <select id="tipo" name="tipo">
+            <option value="" selected>Selecciona tipo</option>
+            <option th:each="tipo : ${tipos}" th:value="${tipo.id}" th:text="${tipo.nombre}"></option>
+        </select>
+    </div>
+
+    <div class="range_container">
+        <label id="preciomin">Precio por hora:</label>
+        <div class="sliders_control">
+            <input id="fromSlider" type="range" value="10" min="0" max="100"/>
+            <input id="toSlider" type="range" value="40" min="0" max="100"/>
+        </div>
+        <div class="form_control">
+            <div class="form_control_container">
+                <div class="form_control_container__time">Min</div>
+                <input class="form_control_container__time__input" type="number" id="fromInput" name = "min" value="10" min="0" max="100"/>
+            </div>
+            <div class="form_control_container">
+                <div class="form_control_container__time">Max</div>
+                <input class="form_control_container__time__input" type="number" id="toInput" name = "max" value="40" min="0" max="100"/>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="input__wrapper">
+        <label class="input__label">El profesor habla</label>
+        <select id="idiomaHabla" name="idiomaHabla">
+            <option value ='' selected>Selecciona idioma</option>
+            <option th:each="idioma : ${idiomas}" th:value="${idioma.id}" th:text="${idioma.name}"></option>
+        </select>
+    </div>
+    <div class="input__wrapper">
+        <label class="input__label">El profesor es de</label>
+        <select id="pais" name="pais">
+            <option value="" selected>Selecciona país</option>
+            <option th:each="pais : ${paises}" th:value="${pais.id}" th:text="${pais.nombre}"></option>
+        </select>
+    </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Buscar</button>
+</form>
+
+<div class="gallery">
+    <div class="card" th:each="profesor : ${profesores}">
+        <img th:src="${profesor.fotoPerfilPath}">
+        <p><span th:text="${profesor.name}"></span> <span th:text="${profesor.surname}"></span></p>
+        <p>Precio por hora: <span th:text="${profesor.pricePerHour}"></span></p>
+        <a th:href="@{'/profesor/' + ${profesor.id}}">Ver perfil</a>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const fromSlider = document.querySelector('#fromSlider');
+        const toSlider = document.querySelector('#toSlider');
+        const fromInput = document.querySelector('#fromInput');
+        const toInput = document.querySelector('#toInput');
+
+        function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
+            const [from, to] = getParsed(fromInput, toInput);
+            fillSlider(fromInput, toInput, '#C6C6C6', '#25daa5', controlSlider);
+            if (from > to) {
+                fromSlider.value = to;
+                fromInput.value = to;
+            } else {
+                fromSlider.value = from;
+            }
+        }
+
+        function controlToInput(toSlider, fromInput, toInput, controlSlider) {
+            const [from, to] = getParsed(fromInput, toInput);
+            fillSlider(fromInput, toInput, '#C6C6C6', '#25daa5', controlSlider);
+            setToggleAccessible(toInput);
+            if (from <= to) {
+                toSlider.value = to;
+                toInput.value = to;
+            } else {
+                toInput.value = from;
+            }
+        }
+
+        function controlFromSlider(fromSlider, toSlider, fromInput) {
+            const [from, to] = getParsed(fromSlider, toSlider);
+            fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
+            if (from > to) {
+                fromSlider.value = to;
+                fromInput.value = to;
+            } else {
+                fromInput.value = from;
+            }
+        }
+
+        function controlToSlider(fromSlider, toSlider, toInput) {
+            const [from, to] = getParsed(fromSlider, toSlider);
+            fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
+            setToggleAccessible(toSlider);
+            if (from <= to) {
+                toSlider.value = to;
+                toInput.value = to;
+            } else {
+                toInput.value = from;
+                toSlider.value = from;
+            }
+        }
+
+        function getParsed(currentFrom, currentTo) {
+            const from = parseInt(currentFrom.value, 10);
+            const to = parseInt(currentTo.value, 10);
+            return [from, to];
+        }
+
+        function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+            const rangeDistance = to.max - to.min;
+            const fromPosition = from.value - to.min;
+            const toPosition = to.value - to.min;
+            controlSlider.style.background = `linear-gradient(
+          to right,
+          ${sliderColor} 0%,
+          ${sliderColor} ${(fromPosition)/(rangeDistance)*100}%,
+          ${rangeColor} ${((fromPosition)/(rangeDistance))*100}%,
+          ${rangeColor} ${(toPosition)/(rangeDistance)*100}%,
+          ${sliderColor} ${(toPosition)/(rangeDistance)*100}%,
+          ${sliderColor} 100%)`;
+        }
+
+        function setToggleAccessible(currentTarget) {
+            const toSlider = document.querySelector('#toSlider');
+            if (Number(currentTarget.value) <= 0 ) {
+                toSlider.style.zIndex = 2;
+            } else {
+                toSlider.style.zIndex = 0;
+            }
+        }
+
+        fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
+        setToggleAccessible(toSlider);
+
+        fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
+        toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
+        fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
+        toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Example</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+
+<body>
+
+<form class="my-form" th:action="@{/login}" method = "post">
+
+    <div class="login-welcome-row">
+        <a th:href="@{/}" title="Logo">
+            <img src="img/logo.png" alt="Logo" class="logo">
+        </a>
+        <h1>¡Bienvenido!</h1>
+        <p>Introduzca sus datos</p>
+    </div>
+
+
+    <div class="input__wrapper">
+        <input
+                type="text" id="username" name="username" class="input__field"
+                placeholder="username" required autocomplete="off"
+        >
+
+        <label for="username" class="input__label">Usuario</label>
+
+    </div>
+
+    <div class="input__wrapper">
+        <input id="password" name = "password" type="password" class="input__fieldd" placeholder="Your Password"
+               title="Minimum 6 characters at least 1 Alphabet and 1 Number"
+               required autocomplete="off">
+        <label for="password" class="input__label">
+            Contraseña
+        </label>
+        <img alt="Eye Icon" title="Eye Icon" src="img/eye-off.png" class="input__icon">
+
+    </div>
+
+
+
+
+    <button type="submit" class="my-form__button">
+        Iniciar Sesión
+    </button>
+
+    <div class="my-form__actions">
+        <div class="my-form__row">
+            <span>¿No tienes cuenta?</span>
+            <a th:href="@{/sign-up}" title="Create Account">
+                Regístrate
+            </a>
+
+        </div>
+    </div>
+
+</form>
+
+
+<script th:src="@{/js/login.js}"></script>
+
+</body>
+
+</html>

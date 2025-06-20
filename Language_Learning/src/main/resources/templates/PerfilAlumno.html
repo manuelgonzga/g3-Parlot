@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" th:href="@{img/logo.png}"/>
+    <link rel="stylesheet" th:href="@{/css/PerfilAlumno.css}">
+    <title>PerfilAlumno</title>
+</head>
+<body>
+<div class="profile">
+    <header class="profile__header">
+        <div class="profile__left">
+            <div class="profile__name">
+                <p th:text="'¡Hola ' + ${alumno.name} +' '+ ${alumno.surname} + ' !'"} ></p>
+            </div>
+            <div class="profile__highlight__wrapper">
+                <img th:src="${fotoPath}" alt="Foto de perfil del alumno" width="100" height="100">
+            </div>
+        </div>
+        <div class="profile__right">
+            <div id="about" class="tab-content tab-content--active">
+                <p>País: <span th:text="${alumno.getPais().getNombre()}"></span></p>
+                <p>Telefono: <span th:text="${alumno.getTelefono()}"></span></p>
+                <p>Email: <span th:text="${alumno.getMail()}"></span></p>
+                <p>Fecha nacimiento: <span th:text="${alumno.getDateOfBirth()}"></span></p>
+                <p id = "idioma">Idiomas: <span th:each="idioma : ${alumno.getUserIdiomas()}" th:value = "${idioma.id}" th:text="${idioma.getIdioma().getName()}"></span></p>
+            </div>
+            <form th:action="@{/editProfile/{id}(id=${alumno.id})}" th:method="get">
+                <input type="submit" value="Editar Perfil">
+            </form>
+        </div>
+    </header>
+</div>
+
+
+</body>
+</html>
+

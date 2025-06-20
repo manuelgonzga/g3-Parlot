@@ -1,0 +1,453 @@
+@charset "UTF-8";
+
+#js-book-calendar {
+
+    margin-top: 300px;
+    margin-left: 100px;
+    width: 1200px; /* Reducir el ancho del calendario */
+    height: 500px; /* Reducir la altura del calendario */
+    position: relative; /* Establecer la posición fija para que el calendario se mantenga en su lugar mientras se desplaza la página */
+    top: 80%; /* Colocar el calendario en el centro vertical */
+    left: 45%; /* Colocar el calendario en el centro horizontal */
+    transform: translate(-50%, -50%); /* Centrar el calendario exactamente */
+    z-index: 1000; /* Ajustar el índice z para asegurarse de que el calendario esté encima de otros elementos */
+    border-radius: 5px; /* Añadir bordes redondeados al calendario */
+    background-color: #ffffff; /* Cambiar el color de fondo del calendario */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Añadir sombra al calendario */
+    font-family: Arial, sans-serif; /* Cambiar la fuente si lo deseas */
+}
+
+
+#js-book-calendar .fc-scrollgrid > thead > .fc-scrollgrid-section-sticky > * {
+    top: 0;
+}
+#js-book-calendar .fc-timegrid-slot {
+    height: 2rem;
+}
+
+
+#js-book-calendar .fc-timegrid-slot-label-frame {
+    position: relative;
+}
+#js-book-calendar .fc-timegrid-slot-label-cushion {
+    padding: 0 5px;
+    padding-left: 25px;
+    color: #a0a0a0;
+    font-weight: 200;
+}
+#js-book-calendar .fc-timegrid-slot-label-cushion {
+    position: absolute;
+    left: 7px;
+    color: #357835;
+    font-size: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#js-book-calendar .fc-timegrid-slot-label-cushion {
+    color: #357835;
+}
+#js-book-calendar .fc-event {
+    border-radius: 5px;
+    padding: 5px;
+    bottom: 0;
+    position: relative;
+    height: auto;
+    border-color: #fff;
+    min-height: calc(2rem - 1px);
+}
+#js-book-calendar .fc-event:hover .fix-btn {
+    display: inline-block;
+}
+#js-book-calendar .fc-event.booked-slot {
+    background-color: #58cd20;
+    border-color: #fff;
+    cursor: pointer;
+}
+#js-book-calendar .fc-event .fas {
+    margin-right: 5px;
+}
+#js-book-calendar .fc-event.empty-slot {
+    background-color: transparent;
+    border-color: transparent;
+}
+#js-book-calendar .fc-event.empty-slot:hover {
+    background-color: rgba(253, 126, 20, 0.09);
+}
+#js-book-calendar .fc-event.fc-event-past {
+    background-color: #ececec;
+    background-image: repeating-linear-gradient(-45deg, transparent 0 2px, #eaeaea 0 3px);
+    border-color: #fff;
+}
+#js-book-calendar .fc-event.fc-event-past .booking-name {
+    color: #777;
+}
+#js-book-calendar .fc-event.fc-event-past .label-book.booked {
+    color: #777;
+}
+
+.fc-highlight {
+    background-color: #357835;
+    opacity: 0.3;
+}
+
+#js-book-calendar .fc-event.fc-event-past.empty-slot {
+    background-color: #d8d8d8;
+    border-color: #eeeeee !important;
+}
+#js-book-calendar .fc-event.fc-event-past.available-slot .inner-content {
+    color: #777;
+    display: initial;
+}
+#js-book-calendar .fc-event.fc-event-past .fix-btn {
+    display: none;
+}
+#js-book-calendar .fc-event.hot-slot:after {
+
+    /*
+    display: none;
+    content: "";
+    font-family: "Font Awesome 5 Free";
+    font-weight: bold;
+    position: absolute;
+    left: 35%;
+    top: 50%;
+    z-index: -1;
+    color: rgba(253, 126, 20, 0.2);
+    font-size: 16px;
+    transform: translate(-50%, -50%);
+
+     */
+
+
+}
+#js-book-calendar .fc-event.hot-slot:before {
+
+    /*
+
+    display: none;
+    content: "HOT";
+    position: absolute;
+    left: 60%;
+    top: 50%;
+    z-index: -1;
+    color: rgba(253, 126, 20, 0.2);
+    font-size: 16px;
+    transform: translate(-50%, -50%);
+
+     */
+
+
+}
+#js-book-calendar .fc-timegrid-col-events {
+    margin: 1px;
+}
+#js-book-calendar .label-book {
+    font-size: 0.85rem;
+}
+#js-book-calendar .booking-name {
+    font-weight: 600;
+}
+#js-book-calendar .fc-timegrid-event {
+    background-color: #19c1fe;
+    border-color: #fff;
+}
+#js-book-calendar .fc-timegrid-event .fc-event-main {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+#js-book-calendar .close-schedule {
+    background-color: #fff;
+    color: #0c0c0c;
+    border-color: #fff;
+}
+#js-book-calendar .cancel-schedule {
+    background-color: #1a1819;
+    color: #fff;
+}
+#js-book-calendar .fix-btn {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    display: none;
+    padding: 2px 4px;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
+}
+#js-book-calendar .fix-btn:hover {
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+}
+#js-book-calendar .fc-col-header-cell {
+    font-weight: 400;
+}
+#js-book-calendar .fc-col-header-cell .hd-date {
+    font-size: 20px;
+    font-weight: 600;
+}
+#js-book-calendar .fc-col-header-cell .hd-day {
+    font-size: 16px;
+    color: #ccc;
+}
+#js-book-calendar .fc-col-header-cell .fc-col-header-cell-cushion {
+    text-decoration: none;
+}
+#js-book-calendar .fc-col-header-cell.fc-day-today .fc-col-header-cell-cushion {
+    color: #357835;
+}
+#js-book-calendar .fc-col-header-cell .fc-col-header-cell-cushion {
+    pointer-events: none;
+}
+#js-book-calendar .fc-button-primary {
+    background-color: #357835;
+    border-color: #357835;
+}
+#js-book-calendar .fc-header-toolbar .fc-toolbar-chunk .fc-today-button {
+    margin-right: 10px;
+}
+#js-book-calendar .fc-header-toolbar .fc-toolbar-chunk .fc-toolbar-title {
+    border: 1px solid #357835;
+    padding: 0.4rem 0.6rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    white-space: nowrap;
+    margin: 0 10px;
+    color: #357835;
+}
+#js-book-calendar .fc-header-toolbar .fc-toolbar-chunk:last-child > div {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+#js-book-calendar .fc-scrollgrid > thead > .fc-scrollgrid-section-sticky > * {
+    top: 101px;
+}
+#js-book-calendar a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+}
+#js-book-calendar .fc-toolbar-title {
+    min-width: 150px;
+    text-align: center;
+}
+#js-book-calendar .box-slot {
+    margin-left: 15px;
+    padding: 0 3px;
+    background: #ffff;
+    position: absolute;
+    color: #357835;
+    bottom: 0;
+    box-shadow: 0px 1px 0px 0px #fff;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    font-weight: 500;
+    right: 10px;
+    border: 1px solid #e1e1e1;
+    border-bottom: 0;
+}
+#js-book-calendar a.fc-col-header-cell-cushion {
+    display: block;
+    position: relative;
+}
+#js-book-calendar .date-wrap {
+    padding-right: 30px;
+}
+#js-book-calendar .header-container {
+    padding: 5px 0;
+}
+
+@media screen and (max-width: 992px) {
+    #js-book-calendar .date-wrap {
+        line-height: 1;
+        margin-bottom: 5px;
+    }
+
+    #js-book-calendar .fc-col-header-cell .fc-col-header-cell-cushion {
+        padding-bottom: 0;
+    }
+
+    #js-book-calendar .header-container {
+        padding: 0;
+    }
+
+    #js-book-calendar .date-wrap {
+        padding-right: 0;
+    }
+
+    #js-book-calendar .box-slot {
+        position: static;
+        margin-left: 0;
+        margin-right: 5px;
+        max-width: 50px;
+        font-size: 10px;
+    }
+
+    #js-book-calendar .fc-col-header-cell .hd-date {
+        font-size: 14px;
+    }
+    #js-book-calendar .fc-col-header-cell .hd-day {
+        font-size: 12px;
+    }
+
+    #js-book-calendar .fc-timegrid-slot-label-cushion {
+        margin-right: 15px;
+    }
+    #js-book-calendar .fc-timegrid-slot-label-cushion .hot-icon {
+        display: none;
+    }
+
+    #js-book-calendar .fc-timegrid-slot-label-frame {
+        padding-right: 5px;
+    }
+}
+@media screen and (max-width: 768px) {
+    #js-book-calendar .fc-timegrid-slot-label-cushion {
+        padding: 0 5px;
+        font-size: 12px;
+    }
+
+    #js-book-calendar .label-book {
+        font-size: 0.5rem;
+    }
+
+    #js-book-calendar .booking-name {
+        display: none;
+    }
+
+    #js-book-calendar .fix-btn {
+        display: inline-block;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        opacity: 0;
+    }
+}
+@media screen and (max-width: 650px) {
+    .fc-header-toolbar {
+        flex-wrap: wrap;
+    }
+    .fc-header-toolbar .fc-toolbar-chunk {
+        width: 100%;
+    }
+    .fc-header-toolbar .fc-toolbar-chunk:first-child {
+        margin-bottom: 15px;
+    }
+    .fc-header-toolbar .fc-toolbar-chunk:last-child {
+        width: auto;
+    }
+}
+@media screen and (max-width: 480px) {
+    #js-book-calendar .fc-header-toolbar .fc-toolbar-chunk .fc-toolbar-title {
+        font-size: 12px;
+        padding: 0.6rem;
+        min-width: auto;
+        flex-grow: 1;
+    }
+
+    #js-book-calendar .label-book {
+        display: block;
+        font-size: 9px;
+    }
+    #js-book-calendar .label-book i.fas {
+        margin-bottom: 3px;
+    }
+
+    #js-book-calendar .fc-timegrid-slot {
+        height: 3rem;
+    }
+
+    #js-book-calendar .fc-event {
+        min-height: calc(3rem - 1px);
+    }
+
+    .fc-header-toolbar .fc-toolbar-chunk:last-child {
+        width: 100%;
+    }
+
+    .notice ul {
+        padding-left: 1rem;
+    }
+    .notice ul li {
+        margin-bottom: 5px;
+    }
+
+    #js-book-calendar .fc-timegrid-slot-label-frame {
+        padding-right: 0;
+    }
+
+    #js-book-calendar .fc-timegrid-slot-label-cushion {
+        padding: 0;
+        padding-right: 3px;
+        font-size: 10px;
+    }
+
+    #js-book-calendar .fc-col-header-cell .hd-date {
+        display: block;
+    }
+
+    #js-book-calendar .date-wrap .hd-date {
+        display: block;
+        font-size: 12px;
+    }
+    #js-book-calendar .date-wrap .hd-day {
+        font-size: 10px;
+    }
+    #js-book-calendar .box-slot {
+        padding: 0;
+        font-size: 10px;
+        padding: 0;
+    }
+    #js-book-calendar .box-slot .mg-x-2 {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+.calendar-enter {
+    opacity: 0;
+    transform: scale(0.2);
+}
+
+.calendar-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.calendar-exit {
+    opacity: 1;
+}
+
+.calendar-exit-active {
+    opacity: 0;
+    transform: scale(0.2);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+@media (min-width: 768px) {
+    #quick-calendar .row .c-left {
+        flex-basis: 100px;
+        max-width: 100px;
+    }
+}
+#quick-calendar .row .c-left h5 {
+    margin: 0;
+    line-height: 2.5;
+}
+@media (min-width: 768px) {
+    #quick-calendar .row .c-right {
+        flex-grow: 1;
+        max-width: calc(100% - 100px);
+    }
+}
+#quick-calendar .row .c-right .form-group {
+    padding: 5px;
+}
+
+.flatpickr-calendar.noCalendar {
+    max-width: calc(100% - 2px);
+    left: 1px;
+}
+
+

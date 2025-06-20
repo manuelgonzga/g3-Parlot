@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <ul th:if="${esProfesor}">
+
+        <li> <span th:each="clase : ${profesor.getClases()}" th:text="'Clase: '+ ${clase.getProfesor().name} + ' | '+ ${clase.getIdioma_nombre()} + ' | ' + ${clase.getTipo().getNombre()} + ' | ' + ${clase.getFechaInicioMadrid().toString()}"></span></li>
+
+    </ul>
+
+
+    <ul th:if="${esAlumno}">
+
+        <li th:each="clase : ${alumno.getClases()}"> <span th:text="'Clase: '+ ${clase.getProfesor().name} + ' | '+ ${clase.getIdioma_nombre()} + ' | ' + ${clase.getTipo().getNombre()} + ' | ' + ${clase.getFechaInicioMadrid().toString()}"></span> <br/> </li>
+
+    </ul>
+
+</body>
+</html>

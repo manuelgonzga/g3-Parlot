@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #516e52;
+    margin: 0;
+    padding: 0;
+}
+
+.profile {
+    width: 80%;
+    height: 15cm;
+    margin: 1cm auto 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.profile__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile__left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3cm;
+    margin-left: 4cm;
+}
+
+.profile__right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 4cm;
+    margin-top: 3cm;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.profile__header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.profile__name {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+
+.profile__highlight__wrapper p {
+    text-align: center;
+}
+
+#about {
+    line-height: 1.6;
+}
+
+#about p {
+    margin-bottom: 10px;
+}
+
+form {
+    text-align: center;
+}
+
+form input[type="submit"] {
+    background-color: #99ce9a; /* Cambia el color de fondo */
+    color: white; /* Cambia el color del texto */
+    padding: 14px 20px; /* Añade padding */
+    margin: 8px 0; /* Añade margen */
+    border: none; /* Elimina el borde */
+    border-radius: 4px; /* Añade bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+form input[type="submit"]:hover {
+    background-color: #516e52; /* Cambia el color de fondo al pasar por encima */
+}
+

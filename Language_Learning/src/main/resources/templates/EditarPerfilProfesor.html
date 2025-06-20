@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar</title>
+    <link rel="stylesheet" type="text/css" href="/css/registro.css">
+    <link rel = "icon" href = "img/logo64.png" type = "image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+
+</head>
+<body>
+
+
+<form class="my-form" th:action="@{'/edit/usuario/'+${profesor.id}}" method="post" th:object="${profesor}" enctype="multipart/form-data">
+
+    <div class="input__wrapper">
+        <input type="text" id="usuario" class="input__field" th:field="*{username}" required autofocus th:value="${profesor.username}">
+        <label for="usuario" class="input__label">Usuario</label>
+    </div>
+
+    <div class = "name-surname-wrapper">
+        <div class="input__wrapper">
+            <input type="text" id="nombre" class="input__field" th:field="*{name}" required autofocus th:value="${profesor.name}">
+            <label for="nombre" class="input__label">Nombre</label>
+        </div>
+
+        <div class="input__wrapper">
+            <input type="text" id="apellidos" class="input__field" th:field="*{surname}" required autofocus th:value="${profesor.surname}">
+            <label for="apellidos" class="input__label">Apellidos</label>
+        </div>
+    </div>
+
+
+    <div class="input__wrapper">
+        <input type="text" id="email" class="input__field" th:field="*{mail}" required autofocus th:value="${profesor.mail}">
+        <label for="email" class="input__label">Email</label>
+    </div>
+
+
+    <div class="input__wrapper">
+        <label class="input__label" for="paises">Pais</label>
+        <select id="paises" name="Dinos de donde eres" th:field="*{pais}">
+            <option th:value ="${profesor.pais}" selected>Selecciona país</option>
+            <option th:each="pais : ${paises}" th:value="${pais.id}" th:text="${pais.nombre}"></option>
+        </select>
+    </div>
+
+    <div class="input__wrapper">
+        <label class="input__label" for="paises">Prefijo</label>
+        <select id="prefijo" name="prefijo" th:field="*{prefijo}">
+            <option th:value ="${profesor.prefijo}" selected>Selecciona prefijo</option>
+            <option th:each="pais : ${paises}" th:value="${pais.id}" th:text="${pais.prefijo + ' (' + pais.nombre + ')'}" th:selected="${pais.nombre} == '+34 (España)'"></option>
+        </select>
+    </div>
+
+    <div class="input__wrapper">
+        <label class="input__label" for="telefono">Telefono</label>
+        <input type="text" id="telefono" class="input__field" th:field="*{telefono}" required autofocus th:value="${profesor.telefono}">
+    </div>
+
+    <div class="input__wrapper">
+        <label class="input__label"> Idiomas que hablo:</label>
+        <select  id="SeleccionIdiomasHabla" name="¡Qué idiomas hablas!" th:field="*{idiomas}" multiple>
+            <option th:each="idioma : ${idiomas}" th:value="${idioma.id}" th:text="${idioma.getName()}"></option>
+        </select>
+    </div>
+
+    <div class="input__wrapper">
+        <label class="input__label"> Idiomas que enseño:</label>
+        <select  id="SeleccionIdiomasEnseña" name="¡Qué idiomas enseñas!" th:field="*{idiomasEnseña}" multiple>
+            <option th:each="idioma : ${idiomas}" th:value="${idioma.id}" th:text="${idioma.getName()}"></option>
+        </select>
+    </div>
+
+    <div class="input__wrapper">
+        <label class="input__label" for="price_per_hour">Precio por hora:</label>
+        <input type="text" id="price_per_hour" class="input__field" th:field="*{pricePerHour}" required autofocus th:value="${profesor.pricePerHour}">
+    </div>
+
+
+    <div class="input__wrapper">
+        <label for="fechaNacimiento" class="input__label">Fecha de nacimiento:</label>
+        <input type="date" id="fechaNacimiento" class="input__field" th:field="*{dateOfBirth}">
+    </div>
+
+    <div class="input__wrapper">
+        <label for="imagen" class="input__label">Foto de perfil:</label>
+        <div class="dropzone-area">
+            <div class="file-upload-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-cloud-upload" width="24"
+                     height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M7 18a4.6 4.4 0 0 1 0 -9a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7h-1"/>
+                    <path d="M9 15l3 -3l3 3"/>
+                    <path d="M12 12l0 9"/>
+                </svg>
+            </div>
+            <input type="file" id="imagen" name="imagen" class="input__field input__field--hidden" accept="image/*">
+            <div class="file-info"></div> <!-- Elemento para mostrar el nombre del archivo -->
+        </div>
+    </div>
+
+    <button type="submit" class="my-form__button">Editar</button>
+
+</form>
+
+<script>
+    $(document).ready(function() {
+        $('#SeleccionIdiomasHabla').chosen();
+        $('#SeleccionIdiomasEnseña').chosen();
+        $('#paises').chosen();
+    });
+</script>
+
+</body>
+</html>
